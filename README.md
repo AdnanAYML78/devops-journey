@@ -12,6 +12,7 @@ I’m transitioning into DevOps to build modern, scalable infrastructure — and
 |------|----------------------------------------|------|
 | 1️⃣   | Shell Scripting & Linux Basics         | [View Folder](./week-01-shell-linux/) |
 | 2️⃣   | Git, Environment Variables, Networking | [View Folder](./week-02-git-networking/) |
+| 3️⃣   | CI/CD and Jenkins                  | [View Folder](./week-03-ci-cd-jenkins/) |
 
 ---
 
