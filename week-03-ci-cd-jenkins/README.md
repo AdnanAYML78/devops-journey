@@ -1,66 +1,93 @@
-# 👋 Welcome to My DevOps Learning Journey
+# Jenkins Pipeline — From Job Creation to Jenkinsfile
 
-Hi, I'm Adnan! I'm currently completing the TechWorld with Nana (TWN) DevOps Bootcamp. I'm using this repository to document my weekly learning, hands-on practice, and reflections.
+Hands-on demo of creating a **Jenkins Pipeline** job connected to a Git repository (GitLab in this example), using a `Jenkinsfile` to define **build → test → deploy** stages.
 
-I’m transitioning into DevOps to build modern, scalable infrastructure — and this is where I show my work.
-
----
-
-## 📅 Weekly Progress
-
-| Week | Topic                                | Link |
-|------|--------------------------------------|------|
-| 1️⃣   | Shell Scripting & Linux Basics       | [View Folder](./week-01-shell-linux/) |
-| 2️⃣   | Git, Environment Variables, Networking | [View Folder](./week-02-git-networking/) |
+> Why pipeline jobs? They are **pipeline-as-code**, support **parallelism**, **variables**, **conditions**, and live in source control — perfect for CI/CD. Freestyle jobs are OK for quick, simple runs but limited to UI fields.
 
 ---
 
-## 🔗 GitHub Pages
+## 📁 Repo Structure
 
-View the live version of this repo:  
-➡️ [https://AdnanAYML78.github.io/devops-journey/](https://AdnanAYML78.github.io/devops-journey/)
+```
+week-03-ci-cd-jenkins/
+├── README.md
+└── images/
+    ├── step-01.png
+    ├── step-02.png
+    ├── step-03.png
+    ├── step-04.png
+    ├── step-05.png
+    ├── step-06.png
+    └── step-07.png
+```
+
+---
+
+## ✅ Step-by-step
+
+### 1) Create a **Pipeline** job
+![New Item](images/step-01.png)
+
+### 2) General configuration
+Turn on relevant options (discard old builds, parameters, etc.) as needed.
+![General Config](images/step-02.png)
+
+### 3) Define the pipeline script (option A: inline)
+You can write Groovy directly in Jenkins. The **Groovy Sandbox** restricts unapproved methods for safety.
+![Pipeline Script](images/step-03.png)
+
+### 4) (Recommended) Define from SCM
+Use **Pipeline script from SCM** and point to your repo where `Jenkinsfile` lives.
+![Pipeline from SCM](images/step-04.png)
+
+### 5) Create a `Jenkinsfile` in your repo
+Example **Declarative** pipeline:
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('build') {
+            steps {
+                echo 'Building the application...'
+            }
+        }
+        stage('test') {
+            steps {
+                echo 'Running tests...'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'Deploying application...'
+            }
+        }
+    }
+}
+```
+![Jenkinsfile in Repo](images/step-05.png)
+
+### 6) Run the build — view **Stage View**
+Each stage shows duration, status and logs — ideal for troubleshooting.
+![Stage View](images/step-06.png)
+
+### 7) Inspect **Console Output**
+Full logs for checkout + each stage are available.
+![Console Output](images/step-07.png)
 
 ---
 
-## 🚀 Tools Covered So Far
+## 🧠 Notes
 
-- Linux CLI
-- Bash Scripting
-- Git & GitHub
-- Networking Basics
-# 🚀 Adnan's DevOps Bootcamp Journey
-
-Welcome to my GitHub portfolio documenting my hands-on DevOps journey through the TechWorld with Nana (TWN) bootcamp.
-
-## 👋 About Me
-I'm Adnan Ahmed, a DevOps Engineer with AWS certifications and a background in civil engineering and teaching. I'm transitioning into DevOps and Cloud Engineering, and this space will docu
-🔗 [Connect with me on LinkedIn](https://www.linkedin.com/in/adnan-ahmed78/)
-
-## 📅 Weekly Learning Updates
-
-| Week | Topics Covered |
-|------|----------------|
-| 1 | Linux, Shell Scripting, CLI, File Permissions |
-| 2 | Git, GitHub, SSH Keys, Merge Conflicts |
-| 3 | Build Tools (Maven, Gradle), Java App Builds |
-| 4 | CI/CD Basics, Jenkins Setup, Freestyle Jobs |
-| 5 | Jenkins Pipelines, Versioning, Webhooks |
-| 6 | Docker & Containers, Dockerfile, Docker Compose |
-| 7 | AWS: IAM, EC2, ECR, CLI |
-| 8 | Kubernetes Basics, kubectl, Deployments |
-| 9 | Helm, EKS, Microservices |
-| 10 | Demo Projects & Best Practices |
-
-## 🧪 Projects
-
-- [Kubernetes Deployment: Mongo + Mongo Express](./projects/kubernetes-mongo-deploy)
-- [CI/CD Pipeline with Jenkins + Docker](./projects/ci-cd-pipeline-jenkins)
-- [WordPress on AWS EC2](./projects/wordpress-on-ec2)
-- [DevOps Scripts & Automation](./projects/devops-scripts)
-
-## 📚 Notes & Resources
-
-Check the `/notes` directory for bootcamp notes and cheat sheets organized by topic.
+- **Freestyle vs Pipeline**: Freestyle is UI-driven and limited; **Pipeline** is code-driven and versioned.
+- **Groovy**: a Java-like language; Declarative syntax is simpler, Scripted is more flexible.
+- **Best practice**: keep the pipeline in Git (Infrastructure as Code).
 
 ---
-🚧 **Work in Progress**: This portfolio is actively evolving with each week's bootcamp session. Stay tuned for updates!
+
+## 🔜 Next
+
+Deep-dive into Declarative syntax: stages, steps, environment, tools, matrix, `when` conditions, `post` actions, and **parallel** stages; then integrate Docker, AWS and Kubernetes.
+
+---
+
+*Generated on 2025-10-13*
