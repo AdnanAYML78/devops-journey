@@ -1,3 +1,5 @@
 images/
 *.log
 *.env
+!week-03-ci-cd-jenkins/images/
+
