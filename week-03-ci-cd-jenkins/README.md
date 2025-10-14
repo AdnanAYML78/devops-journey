@@ -69,4 +69,23 @@ pipeline {
         }
     }
 }
+✅ Successful Build
+Once triggered, Jenkins fetched my Jenkinsfile from GitLab and executed each stage — build, test, and deploy — visible in the Jenkins UI with their own logs and execution times.
 
+This approach provides clear visibility, traceability, and easier troubleshooting for any failed stage.
+
+📸 Pipeline Walkthrough (Screenshots)
+Step	Description	Image
+1️⃣	Create Pipeline Job	
+2️⃣	Configure General Settings	
+3️⃣	Pipeline Definition	
+4️⃣	Jenkinsfile Configured	
+5️⃣	Build Stages	
+6️⃣	Stage View	
+7️⃣	Console Output	
+
+🎯 Wrap-Up
+That’s a wrap on my first Jenkins Pipeline Project!
+Next up → deeper dive into Jenkinsfile syntax, advanced logic, and integration with Docker & AWS for full CI/CD automation.
+
+#DevOps #Jenkins #CI/CD #GitLab #Automation #PipelineAsCode #TechWorldWithNana #LearningInPublic #CloudComputing
