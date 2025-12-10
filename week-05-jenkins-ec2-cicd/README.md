@@ -51,7 +51,10 @@ Using SSH + docker compose:
 ---
 
 ## 🖼️ **Screenshots**
-> Screenshots will appear here after I upload them.
+[Stage View](./images/stage-view.png)
+[Docker Version](./images/docker-version.png)
+[Docker Compose Version](./images/docker-compose-version.png)
+
 
 Example placeholder:
 
